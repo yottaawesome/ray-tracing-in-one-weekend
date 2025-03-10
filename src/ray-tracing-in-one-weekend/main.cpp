@@ -1,6 +1,8 @@
 import std;
 
 // Creates a 256x256 PPM file.
+// If you don't have a locally-installed PPM viewer, 
+// you use https://0xc0de.fr/webppm/.
 auto main() -> int
 {
     // Image
