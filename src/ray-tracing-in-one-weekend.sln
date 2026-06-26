@@ -1,9 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 17
-VisualStudioVersion = 17.12.35707.178 d17.12
+# Visual Studio Version 18
+VisualStudioVersion = 18.7.11919.86 stable
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ray-tracing-in-one-weekend", "ray-tracing-in-one-weekend\ray-tracing-in-one-weekend.vcxproj", "{19DB4BDE-3AC2-41EE-9D17-1415DD94820C}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ppm-to-bmp", "ppm-to-bmp\ppm-to-bmp.vcxproj", "{49D86CB6-241A-49DD-82A3-B51FAEEFBCB7}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,8 +23,19 @@ Global
 		{19DB4BDE-3AC2-41EE-9D17-1415DD94820C}.Release|x64.Build.0 = Release|x64
 		{19DB4BDE-3AC2-41EE-9D17-1415DD94820C}.Release|x86.ActiveCfg = Release|Win32
 		{19DB4BDE-3AC2-41EE-9D17-1415DD94820C}.Release|x86.Build.0 = Release|Win32
+		{49D86CB6-241A-49DD-82A3-B51FAEEFBCB7}.Debug|x64.ActiveCfg = Debug|x64
+		{49D86CB6-241A-49DD-82A3-B51FAEEFBCB7}.Debug|x64.Build.0 = Debug|x64
+		{49D86CB6-241A-49DD-82A3-B51FAEEFBCB7}.Debug|x86.ActiveCfg = Debug|Win32
+		{49D86CB6-241A-49DD-82A3-B51FAEEFBCB7}.Debug|x86.Build.0 = Debug|Win32
+		{49D86CB6-241A-49DD-82A3-B51FAEEFBCB7}.Release|x64.ActiveCfg = Release|x64
+		{49D86CB6-241A-49DD-82A3-B51FAEEFBCB7}.Release|x64.Build.0 = Release|x64
+		{49D86CB6-241A-49DD-82A3-B51FAEEFBCB7}.Release|x86.ActiveCfg = Release|Win32
+		{49D86CB6-241A-49DD-82A3-B51FAEEFBCB7}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {11A841EC-20ED-459C-A733-C53011ED5F0F}
 	EndGlobalSection
 EndGlobal

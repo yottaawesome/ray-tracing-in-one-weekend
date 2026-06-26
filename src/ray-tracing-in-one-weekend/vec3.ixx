@@ -13,26 +13,26 @@ export namespace Raytracing
             : e{ e0, e1, e2 }
         {}
 
-        constexpr double x() const noexcept { return e[0]; }
-        constexpr double y() const noexcept { return e[1]; }
-        constexpr double z() const noexcept { return e[2]; }
+        constexpr auto x() const noexcept -> double { return e[0]; }
+        constexpr auto y() const noexcept -> double { return e[1]; }
+        constexpr auto z() const noexcept -> double { return e[2]; }
 
-        constexpr Vec3 operator-() const noexcept
+        constexpr auto operator-() const noexcept -> Vec3
         {
             return Vec3(-e[0], -e[1], -e[2]);
         }
 
-        constexpr double operator[](int i) const noexcept
+        constexpr auto operator[](int i) const noexcept -> double
         {
             return e[i];
         }
 
-        constexpr double& operator[](int i) noexcept
+        constexpr auto operator[](int i) noexcept -> double&
         {
             return e[i];
         }
 
-        constexpr Vec3& operator+=(const Vec3& v) noexcept
+        constexpr auto operator+=(const Vec3& v) noexcept -> Vec3&
         {
             e[0] += v.e[0];
             e[1] += v.e[1];
@@ -40,7 +40,7 @@ export namespace Raytracing
             return *this;
         }
 
-        constexpr Vec3& operator*=(double t) noexcept
+        constexpr auto operator*=(double t) noexcept -> Vec3&
         {
             e[0] *= t;
             e[1] *= t;
@@ -48,17 +48,17 @@ export namespace Raytracing
             return *this;
         }
 
-        constexpr Vec3& operator/=(double t) noexcept
+        constexpr auto operator/=(double t) noexcept -> Vec3&
         {
             return *this *= 1 / t;
         }
 
-        constexpr double length() const noexcept
+        constexpr auto length() const noexcept -> double
         {
             return sqrt(length_squared());
         }
 
-        constexpr double length_squared() const noexcept
+        constexpr auto length_squared() const noexcept -> double
         {
             return e[0] * e[0] + e[1] * e[1] + e[2] * e[2];
         }
@@ -68,56 +68,56 @@ export namespace Raytracing
     using Point3 = Vec3;
 
     // Vector Utility Functions
-    inline std::ostream& operator<<(std::ostream& out, const Vec3& v)
+    inline auto operator<<(std::ostream& out, const Vec3& v) -> std::ostream&
     {
         return out << v.e[0] << ' ' << v.e[1] << ' ' << v.e[2];
     }
 
-    constexpr inline Vec3 operator+(const Vec3& u, const Vec3& v)  noexcept
+    inline constexpr auto operator+(const Vec3& u, const Vec3& v)  noexcept -> Vec3
     {
         return Vec3(u.e[0] + v.e[0], u.e[1] + v.e[1], u.e[2] + v.e[2]);
     }
 
-    constexpr inline Vec3 operator-(const Vec3& u, const Vec3& v)  noexcept
+    inline constexpr auto operator-(const Vec3& u, const Vec3& v)  noexcept -> Vec3
     {
         return Vec3(u.e[0] - v.e[0], u.e[1] - v.e[1], u.e[2] - v.e[2]);
     }
 
-    constexpr inline Vec3 operator*(const Vec3& u, const Vec3& v) noexcept
+    inline constexpr auto operator*(const Vec3& u, const Vec3& v) noexcept -> Vec3
     {
         return Vec3(u.e[0] * v.e[0], u.e[1] * v.e[1], u.e[2] * v.e[2]);
     }
 
-    constexpr inline Vec3 operator*(double t, const Vec3& v) noexcept
+    inline constexpr auto operator*(double t, const Vec3& v) noexcept -> Vec3
     {
         return Vec3(t * v.e[0], t * v.e[1], t * v.e[2]);
     }
 
-    constexpr inline Vec3 operator*(const Vec3& v, double t) noexcept
+    inline constexpr auto operator*(const Vec3& v, double t) noexcept -> Vec3
     {
         return t * v;
     }
 
-    constexpr inline Vec3 operator/(const Vec3& v, double t) noexcept
+    inline constexpr auto operator/(const Vec3& v, double t) noexcept -> Vec3
     {
         return (1 / t) * v;
     }
 
-    constexpr inline double dot(const Vec3& u, const Vec3& v) noexcept
+    inline constexpr auto Dot(const Vec3& u, const Vec3& v) noexcept -> double
     {
         return u.e[0] * v.e[0]
             + u.e[1] * v.e[1]
             + u.e[2] * v.e[2];
     }
 
-    constexpr inline Vec3 cross(const Vec3& u, const Vec3& v) noexcept
+    inline constexpr auto Cross(const Vec3& u, const Vec3& v) noexcept -> Vec3
     {
         return Vec3(u.e[1] * v.e[2] - u.e[2] * v.e[1],
             u.e[2] * v.e[0] - u.e[0] * v.e[2],
             u.e[0] * v.e[1] - u.e[1] * v.e[0]);
     }
 
-    constexpr inline Vec3 unit_vector(const Vec3& v) noexcept
+    inline constexpr auto UnitVector(const Vec3& v) noexcept -> Vec3
     {
         return v / v.length();
     }

@@ -18,20 +18,5 @@
     <ClCompile Include="main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="raytracing.ixx">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="math.ixx">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="vec3.ixx">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="color.ixx">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="ray.ixx">
-      <Filter>Source Files</Filter>
-    </ClCompile>
   </ItemGroup>
 </Project>
