@@ -55,7 +55,6 @@ auto main() -> int
     auto pixel00Loc = viewportUpperLeft + 0.5 * (pixelDeltaU + pixelDeltaV);
 
     // Render
-
     std::cout << "P3\n" << imageWidth << " " << imageHeight << "\n255\n";
 
     for (int j = 0; j < imageHeight; j++) 
@@ -72,7 +71,7 @@ auto main() -> int
         }
     }
 
-    std::clog << "\rDone.                 \n";
+    std::clog << "\rDone.\n";
 
     return 0;
 }
