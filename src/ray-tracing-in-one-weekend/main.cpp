@@ -57,10 +57,10 @@ auto main() -> int
     // Render
     std::cout << "P3\n" << imageWidth << " " << imageHeight << "\n255\n";
 
-    for (int j = 0; j < imageHeight; j++) 
+    for (auto j = 0; j < imageHeight; j++) 
     {
         std::clog << "\rScanlines remaining: " << (imageHeight - j) << ' ' << std::flush;
-        for (int i = 0; i < imageWidth; i++) 
+        for (auto i = 0; i < imageWidth; i++) 
         {
             auto pixelCenter = pixel00Loc + (i * pixelDeltaU) + (j * pixelDeltaV);
             auto rayDirection = pixelCenter - cameraCenter;
