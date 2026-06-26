@@ -1,13 +1,27 @@
 import std;
 import raytracing;
 
+// See 5.1 Ray-Sphere Intersection for the mathematics of this function.
+constexpr auto HitSphere(const Raytracing::Point3& center, double radius, const Raytracing::Ray& r) -> bool
+{
+    auto oc = Raytracing::Vec3{ center - r.Origin() };
+    auto a = Raytracing::Dot(r.Direction(), r.Direction());
+    auto b = -2.0 * Raytracing::Dot(r.Direction(), oc);
+    auto c = Raytracing::Dot(oc, oc) - radius * radius;
+    auto discriminant = b * b - 4 * a * c;
+    return (discriminant >= 0);
+}
+
 auto RayColor(const Raytracing::Ray& r) -> Raytracing::Color
 {
+    if (HitSphere(Raytracing::Point3{ 0, 0, -1 }, 0.5, r))
+        return Raytracing::Color{ 1, 0, 0 };
+
     // A lerp between two values white and blue.
     // blendedValue=(1−a)⋅startValue+a⋅endValue, with a|0<=a<=1
-    auto unit_direction = Raytracing::UnitVector(r.Direction());
-    auto a = 0.5 * (unit_direction.y() + 1.0);
-    return (1.0 - a) * Raytracing::Color(1.0, 1.0, 1.0) + a * Raytracing::Color(0.5, 0.7, 1.0);
+    auto unitDirection = Raytracing::UnitVector(r.Direction());
+    auto a = 0.5 * (unitDirection.y() + 1.0);
+    return (1.0 - a) * Raytracing::Color{ 1.0, 1.0, 1.0 } + a * Raytracing::Color{ 0.5, 0.7, 1.0 };
 }
 
 // If you don't have a locally-installed PPM viewer, 
@@ -26,7 +40,7 @@ auto main() -> int
     constexpr auto focalLength = 1.0;
     constexpr auto viewportHeight = 2.0;
     constexpr auto viewportWidth = viewportHeight * (double{ imageWidth } / imageHeight);
-    constexpr auto cameraCenter = Raytracing::Point3(0, 0, 0);
+    constexpr auto cameraCenter = Raytracing::Point3{ 0, 0, 0 };
 
     // Calculate the vectors across the horizontal and down the vertical viewport edges.
     constexpr auto viewportU = Raytracing::Vec3(viewportWidth, 0, 0);
