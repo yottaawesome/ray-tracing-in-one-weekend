@@ -1,4 +1,5 @@
 import std;
+import raytracing;
 
 // Creates a 256x256 PPM file.
 // If you don't have a locally-installed PPM viewer, 
@@ -6,25 +7,19 @@ import std;
 auto main() -> int
 {
     // Image
-    constexpr int imageWidth = 256;
-    constexpr int imageHeight = 256;
+    constexpr auto imageWidth = 256;
+    constexpr auto imageHeight = 256;
+
     // Render
-    std::println("P3\n{} {}\n255", imageWidth, imageHeight);
+    std::cout << std::format("P3\n{} {}\n255\n", imageWidth, imageHeight);
 
     for (int j = 0; j < imageHeight; j++)
     {
         std::clog << "\rScanlines remaining: " << (imageHeight - j) << ' ' << std::flush;
         for (int i = 0; i < imageWidth; i++)
         {
-            auto r = double(i) / (imageWidth - 1);
-            auto g = double(j) / (imageHeight - 1);
-            auto b = 0.0;
-
-            int ir = int(255.999 * r);
-            int ig = int(255.999 * g);
-            int ib = int(255.999 * b);
-
-            std::println("{} {} {}", ir, ig, ib);
+            auto pixel_color = Raytracing::Color(double(i) / (imageWidth - 1), double(j) / (imageHeight - 1), 0);
+            Raytracing::WriteColor(std::cout, pixel_color);
         }
     }
 
